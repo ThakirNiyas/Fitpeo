@@ -1,6 +1,8 @@
 import React, { ReactElement } from 'react';
 // import '.'; // Import corresponding CSS file for styling
 import { DashboardStyle } from './Dashboard.styled';
+// import LineChart from '../LineChart';
+import bag from "../../bag.jpg";
 
 // Sample static data
 const data = {
@@ -10,13 +12,40 @@ const data = {
     totalRevenue: '$12K',
     netProfit: '$6759.25',
     activity: [
-        { day: '5', value: 3000 },
-        { day: '9', value: 5000 },
-        { day: '13', value: 7000 },
-        { day: '17', value: 10000 },
-        { day: '21', value: 9000 },
-        { day: '25', value: 8000 },
-        { day: '27', value: 6000 },
+        { value: 13000, day: '5' },
+        { day: '9', value: 125000 },
+        { day: '13', value: 77000 },
+        { day: '17', value: 110000 },
+        { day: '21', value: 79000 },
+        { day: '25', value: 118000 },
+        { day: '27', value: 166000 },
+        { day: '21', value: 79000 },
+        { day: '25', value: 118000 },
+        { day: '27', value: 166000 },
+        { day: '21', value: 79000 },
+        { day: '25', value: 118000 },
+        { day: '9', value: 125000 },
+        { day: '13', value: 77000 },
+        { day: '17', value: 110000 },
+        { day: '17', value: 110000 },
+        { day: '21', value: 79000 },
+        { day: '25', value: 118000 },
+        { day: '27', value: 166000 },
+        { day: '21', value: 79000 },
+        { day: '25', value: 118000 },
+        { day: '17', value: 110000 },
+        { day: '21', value: 79000 },
+        { day: '25', value: 118000 },
+        { day: '27', value: 166000 },
+        { day: '21', value: 79000 },
+        { day: '25', value: 118000 },
+        { day: '27', value: 166000 },
+        { day: '9', value: 125000 },
+        { day: '25', value: 118000 },
+        { day: '27', value: 166000 },
+        { day: '21', value: 79000 },
+        { day: '25', value: 118000 },
+        { day: '17', value: 110000 },
     ],
     recentOrders: [
         { customer: 'Wade Warren', orderNo: '15487256', amount: '$124.00', status: 'Delivered' },
@@ -53,7 +82,9 @@ function Dashboard(): ReactElement {
             <div className="dashboard">
                 <header className="dashboard-headers">
                     <div className="header-left">
-                        <input type="text" placeholder="Search..." />
+                        <form>
+                        <input type="text" placeholder="Search..." name="search" />
+                        </form>
                     </div>
                     <div className="header-right">
                         <img src="profile.jpg" alt="Profile" className="profile-icon" />
@@ -67,53 +98,82 @@ function Dashboard(): ReactElement {
                         <div className="sidebar-icon">💬</div>
                         <div className="sidebar-icon">⚙️</div>
                     </aside>
-                    <div className="dashboard-header">
+                    {/* <div className="dashboard-header">
                         <h1>Dashboard</h1>
-                    </div>
+                    </div> */}
                     <main className="grid-container">
-
-
+                    
                         <div className="dashboard-stats">
+                        
                             <div className='grid-item item1'>
                                 <div className="stat">
+                                    <div>
+                                    {/* <img src={require{'../../bag.jpg'}} alt="bag image" /> */}
+                                    </div>
                                     <h3>Total Orders</h3>
+                                    <div className='number-style'>
                                     <p>{data.totalOrders}</p>
+                                    <p>3%</p>
+                                    </div>
                                 </div>
                                 <div className="stat">
                                     <h3>Total Delivered</h3>
+                                    <div className='number-style'>
                                     <p>{data.totalDelivered}</p>
+                                    <p>3%</p>
+                                    </div>
                                 </div>
                                 <div className="stat">
                                     <h3>Total Cancelled</h3>
+                                    <div className='number-style'>
                                     <p>{data.totalCancelled}</p>
+                                    <p>3%</p>
+                                    </div>
                                 </div>
                                 <div className="stat">
                                     <h3>Total Revenue</h3>
+                                    <div className='number-style'>
                                     <p>{data.totalRevenue}</p>
+                                    <p>3%</p>
+                                    </div>
                                 </div>
                             </div>
                             <div className='grid-item item2'>
-                                <div className="stat">
-                                    <h3>Net Profit</h3>
-                                    <p>{data.netProfit}</p>
+                                <div className="stats">
+                                    <h3 className='profit-style'>Net Profit</h3>
+                                    <p className='data-style'>{data.netProfit}</p>
+                                    {/* <ProgressBar percentage={70} profit={6759.25} /> */}
+                                    <p className='percentage-style'>3%</p>
                                 </div>
                             </div>
                         </div>
                         <div className='grid-item item3'>
                             <div className="activity">
-                                <h3>Activity</h3>
+                                <h3 className="text-alignment">Activity</h3>
                                 <div className="chart">
                                     {data.activity.map((item, index) => (
                                         <div key={index} className="bar" style={{ height: `${item.value / 1000}px` }}>
                                             <span>{item.day}</span>
                                         </div>
                                     ))}
+                                    {/* <LineChart /> */}
                                 </div>
+                            </div>
+                        </div>
+                        <div className='grid-item item4'>
+                            <div>
+                                Goals
+                            </div>
+                            <div>
+                                Popular Dishes
+                            </div>
+                            <div>
+                                Menus
                             </div>
                         </div>
                         <div className='grid-item item5'>
                             <div className="recent-orders">
-                                <h3>Recent Orders</h3>
+                                <h3 className="text-align">Recent Orders</h3>
                                 <table>
                                     <thead>
                                         <tr>
@@ -138,16 +198,17 @@ function Dashboard(): ReactElement {
                         </div>
                         <div className='grid-item item6'>
                             <div className="customer-feedback">
-                                <h3>Customer's Feedback</h3>
+                                <h3 className="text-aligns">Customer's Feedback</h3>
                                 {data.feedback.map((fb: Feedback, index: number) => (
                                     <div key={index} className="feedback">
-                                        <h4>{fb.name}</h4>
-                                        <p>{fb.feedback}</p>
+                                        <h4 className='fb-style'>{fb.name}</h4>
                                         <div className="rating">
                                             {Array.from({ length: fb.rating }).map((_, i) => (
                                                 <span key={i}>&#9733;</span>
                                             ))}
                                         </div>
+                                        <p >{fb.feedback}</p>
+
                                     </div>
                                 ))}
                             </div>
