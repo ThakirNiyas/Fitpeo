@@ -76,15 +76,20 @@ export const DashboardStyle = styled.div`
   grid-row: 2;
 }
 .item4 {
-  grid-column: 2;
-  grid-row: 2 / span 1;
-  position: absolute;
-  bottom: 62%;
-  right: 21%;
-  /* top: 32%; */
-  background-color: #3b3e44;
-  border-radius: 10px;
-  //padding: 76px;
+      grid-column: 2;
+    grid-row: 2 / span 1;
+    position: absolute;
+    bottom: 40%;
+    right: 2.7%;
+    background-color: #3b3e44;
+    border-radius: 10px;
+    padding: 2rem;
+    width: 20.2rem;
+}
+.goals-style {
+  text-align: left;
+  margin: 0rem 0 2rem 0;
+}
 }
 .item5 {
   grid-column: 1 / span 2;

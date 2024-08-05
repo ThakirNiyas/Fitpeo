@@ -2,7 +2,10 @@ import React, { ReactElement } from 'react';
 // import '.'; // Import corresponding CSS file for styling
 import { DashboardStyle } from './Dashboard.styled';
 // import LineChart from '../LineChart';
-import bag from "../../bag.jpg";
+// import bag from "../../bag.jpg";
+import { FaBasketShopping } from "react-icons/fa6";
+import { FaShoppingBag } from "react-icons/fa";
+import { LiaFunnelDollarSolid} from "react-icons/lia"
 
 // Sample static data
 const data = {
@@ -108,7 +111,7 @@ function Dashboard(): ReactElement {
                             <div className='grid-item item1'>
                                 <div className="stat">
                                     <div>
-                                    {/* <img src={require{'../../bag.jpg'}} alt="bag image" /> */}
+                                    <FaBasketShopping />
                                     </div>
                                     <h3>Total Orders</h3>
                                     <div className='number-style'>
@@ -117,6 +120,7 @@ function Dashboard(): ReactElement {
                                     </div>
                                 </div>
                                 <div className="stat">
+                                    <FaShoppingBag />
                                     <h3>Total Delivered</h3>
                                     <div className='number-style'>
                                     <p>{data.totalDelivered}</p>
@@ -124,6 +128,7 @@ function Dashboard(): ReactElement {
                                     </div>
                                 </div>
                                 <div className="stat">
+                                <FaShoppingBag />
                                     <h3>Total Cancelled</h3>
                                     <div className='number-style'>
                                     <p>{data.totalCancelled}</p>
@@ -131,6 +136,7 @@ function Dashboard(): ReactElement {
                                     </div>
                                 </div>
                                 <div className="stat">
+                                    <LiaFunnelDollarSolid />
                                     <h3>Total Revenue</h3>
                                     <div className='number-style'>
                                     <p>{data.totalRevenue}</p>
@@ -161,13 +167,13 @@ function Dashboard(): ReactElement {
                             </div>
                         </div>
                         <div className='grid-item item4'>
-                            <div>
+                            <div className='goals-style'>
                                 Goals
                             </div>
-                            <div>
+                            <div className='goals-style'>
                                 Popular Dishes
                             </div>
-                            <div>
+                            <div className='goals-style'>
                                 Menus
                             </div>
                         </div>
