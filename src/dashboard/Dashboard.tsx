@@ -1,13 +1,16 @@
 import React, { ReactElement } from 'react';
-// import '.'; // Import corresponding CSS file for styling
 import { DashboardStyle } from './Dashboard.styled';
-// import LineChart from '../LineChart';
-// import bag from "../../bag.jpg";
 import { FaBasketShopping } from "react-icons/fa6";
 import { FaShoppingBag } from "react-icons/fa";
-import { LiaFunnelDollarSolid} from "react-icons/lia"
+import { LiaFunnelDollarSolid } from "react-icons/lia"
+import ProgressBar from '../progressBar/ProgressBar';
+// import ColumnChart from '../ColumnChart';
+import { GoGoal } from 'react-icons/go';
+import { CiBurger, CiMail } from 'react-icons/ci';
+import { IoIosArrowDroprightCircle, IoIosNotificationsOutline } from "react-icons/io";
+import { BiSolidDish } from "react-icons/bi";
+import { IoSettingsOutline } from 'react-icons/io5';
 
-// Sample static data
 const data = {
     totalOrders: 75,
     totalDelivered: 70,
@@ -65,7 +68,6 @@ const data = {
     ]
 };
 
-// Type definitions
 type Order = {
     customer: string;
     orderNo: string;
@@ -86,10 +88,13 @@ function Dashboard(): ReactElement {
                 <header className="dashboard-headers">
                     <div className="header-left">
                         <form>
-                        <input type="text" placeholder="Search..." name="search" />
+                            <input type="text" placeholder="Search..." name="search" />
                         </form>
                     </div>
                     <div className="header-right">
+                        <CiMail />
+                        <IoSettingsOutline />
+                        <IoIosNotificationsOutline />
                         <img src="profile.jpg" alt="Profile" className="profile-icon" />
                     </div>
                 </header>
@@ -105,51 +110,50 @@ function Dashboard(): ReactElement {
                         <h1>Dashboard</h1>
                     </div> */}
                     <main className="grid-container">
-                    
                         <div className="dashboard-stats">
-                        
                             <div className='grid-item item1'>
                                 <div className="stat">
                                     <div>
-                                    <FaBasketShopping />
+                                        <FaBasketShopping />
                                     </div>
-                                    <h3>Total Orders</h3>
+                                    <h3 className='order-style'>Total Orders</h3>
                                     <div className='number-style'>
-                                    <p>{data.totalOrders}</p>
-                                    <p>3%</p>
+                                        <p>{data.totalOrders}</p>
+                                        <p style={{ color: 'greenyellow', fontSize: '1rem', marginTop: '2rem' }}>3%</p>
                                     </div>
                                 </div>
                                 <div className="stat">
                                     <FaShoppingBag />
-                                    <h3>Total Delivered</h3>
+                                    <h3 className='order-style'>Total Delivered</h3>
                                     <div className='number-style'>
-                                    <p>{data.totalDelivered}</p>
-                                    <p>3%</p>
+                                        <p>{data.totalDelivered}</p>
+                                        <p style={{ color: 'red', fontSize: '1rem', marginTop: '2rem' }}>3%</p>
                                     </div>
                                 </div>
                                 <div className="stat">
-                                <FaShoppingBag />
-                                    <h3>Total Cancelled</h3>
+                                    <FaShoppingBag />
+                                    <h3 className='order-style'>Total Cancelled</h3>
                                     <div className='number-style'>
-                                    <p>{data.totalCancelled}</p>
-                                    <p>3%</p>
+                                        <p>{data.totalCancelled}</p>
+                                        <p style={{ color: 'greenyellow', fontSize: '1rem', marginTop: '2rem' }}>3%</p>
                                     </div>
                                 </div>
                                 <div className="stat">
                                     <LiaFunnelDollarSolid />
-                                    <h3>Total Revenue</h3>
+                                    <h3 className='order-style'>Total Revenue</h3>
                                     <div className='number-style'>
-                                    <p>{data.totalRevenue}</p>
-                                    <p>3%</p>
+                                        <p>{data.totalRevenue}</p>
+                                        <p style={{ color: 'red', fontSize: '1rem', marginTop: '2rem' }}>3%</p>
                                     </div>
                                 </div>
                             </div>
                             <div className='grid-item item2'>
                                 <div className="stats">
                                     <h3 className='profit-style'>Net Profit</h3>
-                                    <p className='data-style'>{data.netProfit}</p>
-                                    {/* <ProgressBar percentage={70} profit={6759.25} /> */}
-                                    <p className='percentage-style'>3%</p>
+                                    <div className='progress-style'>
+                                        <p className='data-style'>{data.netProfit}</p>
+                                        <ProgressBar value={70} /> </div>
+                                    <p style={{ color: 'red' }} className='percentage-style'>3%</p>
                                 </div>
                             </div>
                         </div>
@@ -162,19 +166,21 @@ function Dashboard(): ReactElement {
                                             <span>{item.day}</span>
                                         </div>
                                     ))}
-                                    {/* <LineChart /> */}
                                 </div>
                             </div>
                         </div>
                         <div className='grid-item item4'>
                             <div className='goals-style'>
-                                Goals
+                                <GoGoal />     Goals
+                                <IoIosArrowDroprightCircle style={{ marginRight: '14.3rem' }} />
                             </div>
                             <div className='goals-style'>
-                                Popular Dishes
+                                <CiBurger />   Popular Dishes
+                                <IoIosArrowDroprightCircle style={{ marginRight: '10.3rem' }} />
                             </div>
                             <div className='goals-style'>
-                                Menus
+                                <BiSolidDish />   Menus
+                                <IoIosArrowDroprightCircle style={{ marginRight: '14rem' }} />
                             </div>
                         </div>
                         <div className='grid-item item5'>

@@ -18,8 +18,11 @@ export const DashboardStyle = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  padding: 10px 5px;
   background-color: #23272a;
+  margin-left: 3rem;
+  margin-right: 1.5rem;
+  border-radius: 10px;
 }
 .dashboard-container {
   display: flex;
@@ -76,20 +79,24 @@ export const DashboardStyle = styled.div`
   grid-row: 2;
 }
 .item4 {
-      grid-column: 2;
+    grid-column: 2;
     grid-row: 2 / span 1;
     position: absolute;
-    bottom: 40%;
+    bottom: 42%;
     right: 2.7%;
     background-color: #3b3e44;
     border-radius: 10px;
     padding: 2rem;
-    width: 20.2rem;
+    width: 20rem;
+    height: 9rem;
+}
+.order-style{
+  margin-bottom: 0;
+  font-size: 1rem;
 }
 .goals-style {
   text-align: left;
   margin: 0rem 0 2rem 0;
-}
 }
 .item5 {
   grid-column: 1 / span 2;
@@ -116,6 +123,7 @@ export const DashboardStyle = styled.div`
   text-align: left;
   width: 12rem;
   padding-bottom: 0;
+  height: 7.5rem;
 }
 .stats {
   background-color: #3b3e44;
@@ -129,16 +137,13 @@ export const DashboardStyle = styled.div`
 }
 
 .activity {
-  // margin-bottom: 20px;
   width: 62.5rem;
   background-color: #3b3e44;
-    /* padding: 20px; */
   border-radius: 10px;
 }
 
 .chart {
   display: flex;
-  // justify-content: space-between;
   align-items: flex-end;
   gap: 0%;
 }
@@ -149,6 +154,7 @@ export const DashboardStyle = styled.div`
   margin: 0 5px;
   position: relative;
   border-radius: 10px;
+  margin-bottom: 5px;
 }
 
 .bar span {
@@ -182,11 +188,13 @@ th, td {
 .number-style {
  display: flex;
  justify-content: space-between;
+ font-size: 1.5rem;
 }
 
 .text-align {
   text-align: left;
   margin-left: 0.5rem;
+  margin-bottom: 0;
 }
 .text-aligns {
   text-align: left;
@@ -195,7 +203,7 @@ th, td {
 .text-alignment {
   text-align: left;
   padding: 10px;
-  margin-top: 0;
+  margin: 0;
 }
 .profit-style {
   margin-top: 0;
@@ -220,5 +228,9 @@ th, td {
 
 .fb-style {
  margin: 0;
+}
+.progress-style {
+  display: flex;
+  justify-content: space-between;
 }
 `
